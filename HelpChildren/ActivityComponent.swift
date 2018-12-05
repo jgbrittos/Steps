@@ -16,6 +16,8 @@ class ActivityComponent: UIView {
     @IBOutlet weak var audioIndicatorImageView: UIImageView!
     @IBOutlet weak var playAudioButton: UIButton!
     
+    var player = AVAudioPlayer()
+    
     class func instanceFromNib() -> ActivityComponent {
         guard let card = UINib(nibName: "ActivityComponent", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? ActivityComponent else {
             return ActivityComponent()
@@ -59,7 +61,7 @@ class ActivityComponent: UIView {
     }
     
     
-    var player = AVAudioPlayer()
+    
     func playAudioFile(withName name: String) {
 
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else {
@@ -69,11 +71,16 @@ class ActivityComponent: UIView {
 
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioProgressBar), userInfo: nil, repeats: true)            
         } catch let error {
             print(error.localizedDescription)
         }
 
         player.play()
-
+        
+    }
+    
+    @objc func updateAudioProgressBar() {
+        audioProgressBar.setProgress(player.isPlaying ? Float(player.currentTime/player.duration) : 0, animated: false)
     }
 }

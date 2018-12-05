@@ -12,19 +12,29 @@ let START_ACTIVITY_SEGUE = "StartActivitySegue"
 class ViewController: UIViewController {
 
     @IBOutlet weak var levelsCollectionView: UICollectionView!
+    @IBOutlet weak var trainingButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         levelsCollectionView.delegate = self
         levelsCollectionView.dataSource = self
+        
+        self.trainingButton.layer.masksToBounds = false
+        self.trainingButton.layer.shadowRadius = 5
+        self.trainingButton.layer.shadowOpacity = 0.2
+        self.trainingButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
     }
-
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == START_ACTIVITY_SEGUE {
             let vc = segue.destination as! ActivityViewController
             vc.level = sender as? Int ?? 0
         }
+    }
+    
+    
+    @IBAction func startTraining(_ sender: Any) {
+        self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: 0)
     }
 }
 
@@ -38,6 +48,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelCollectionViewCell
         cell.levelImage.image = UIImage(named: "dog")
         cell.levelLabel.text = "Nível \(indexPath.row + 1)"
+        
         return cell
     }
     
@@ -46,36 +57,24 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: indexPath.row)
     }
-    
-
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 200)
+        let size = collectionView.frame.width / 4.5
+        return CGSize(width: size, height: size)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-//        let CellWidth = 200
-//        let CellCount = 8
-//        let collectionViewWidth = collectionView.frame.size.width
-//        let CellSpacing = 10
-//
-//        let totalCellWidth = CellWidth * CellCount
-//        let totalSpacingWidth = CellSpacing * (CellCount - 1)
-//
-//        let leftInset = (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-//        let rightInset = leftInset
-        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.0
+        return 25.0
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 5.0
+//    }
 }
