@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         self.trainingButton.layer.shadowRadius = 5
         self.trainingButton.layer.shadowOpacity = 0.2
         self.trainingButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        
+        LevelViewModel().loadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,7 +33,6 @@ class ViewController: UIViewController {
             vc.level = sender as? Int ?? 0
         }
     }
-    
     
     @IBAction func startTraining(_ sender: Any) {
         self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: 0)

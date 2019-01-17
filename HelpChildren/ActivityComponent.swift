@@ -60,8 +60,6 @@ class ActivityComponent: UIView {
         playAudioFile(withName: "audio_dog_2")
     }
     
-    
-    
     func playAudioFile(withName name: String) {
 
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else {
