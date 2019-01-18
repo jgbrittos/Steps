@@ -14,6 +14,7 @@ class Menu: Codable {
             return level == 0 ? "Treinamento" : "Nível \(level ?? 0)"
         }
     }
+    
     var level: Int!
     var image: String!
     

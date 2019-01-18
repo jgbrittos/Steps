@@ -12,7 +12,6 @@ let START_ACTIVITY_SEGUE = "StartActivitySegue"
 
 class ViewController: UIViewController {
     @IBOutlet weak var levelsCollectionView: UICollectionView!
-    @IBOutlet weak var trainingButton: UIButton!
     
     lazy var viewModel: LevelViewModel = {
         return LevelViewModel()
@@ -20,20 +19,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         levelsCollectionView.delegate = self
         levelsCollectionView.dataSource = self
-        
-        self.trainingButton.layer.masksToBounds = false
-        self.trainingButton.layer.shadowRadius = 5
-        self.trainingButton.layer.shadowOpacity = 0.2
-        self.trainingButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         
         initVM()
     }
 
     func initVM() {
-        
-        viewModel.updateLevelsList = { [weak self] () in
+        viewModel.updateMenu = { [weak self] () in
             DispatchQueue.main.async {
                 self?.levelsCollectionView.reloadData()
             }
@@ -48,10 +42,6 @@ class ViewController: UIViewController {
             vc.viewModel.activities = viewModel.filterBy(level: sender as? Int ?? 0)
         }
     }
-    
-    @IBAction func startTraining(_ sender: Any) {
-        self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: 0)
-    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -60,18 +50,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelCollectionViewCell
-        let menu = viewModel.menu[indexPath.row]
-        cell.levelImage.image = UIImage(named: menu.image)
-        cell.levelLabel.text = menu.levelDescription
+        
+        cell.setup(with: viewModel.menu[indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        
         self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: indexPath.row)
     }
 }
@@ -90,8 +76,4 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 25.0
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 5.0
-//    }
 }

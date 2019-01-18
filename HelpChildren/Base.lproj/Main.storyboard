@@ -17,19 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Elq-LG-V9K">
-                                <rect key="frame" x="70" y="130" width="884" height="79"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Treinamento">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="startTraining:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Swx-mC-x7D"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sao-7v-QHV">
-                                <rect key="frame" x="60" y="269" width="904" height="439"/>
+                                <rect key="frame" x="60" y="130" width="904" height="578"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="V2k-zG-rPU">
                                     <size key="itemSize" width="200" height="200"/>
@@ -78,21 +67,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.94509803920000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Sao-7v-QHV" firstAttribute="top" secondItem="Elq-LG-V9K" secondAttribute="bottom" constant="60" id="755-ku-ITs"/>
-                            <constraint firstItem="Elq-LG-V9K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="CnY-kS-enQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Sao-7v-QHV" secondAttribute="bottom" constant="60" id="MVJ-00-2LU"/>
                             <constraint firstItem="Sao-7v-QHV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="SNs-LR-2tZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sao-7v-QHV" secondAttribute="trailing" constant="60" id="VfL-jF-0mF"/>
-                            <constraint firstItem="Elq-LG-V9K" firstAttribute="height" secondItem="Sao-7v-QHV" secondAttribute="height" multiplier="0.18" id="YQA-XV-JXI"/>
-                            <constraint firstItem="Elq-LG-V9K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="b43-K9-3JR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Elq-LG-V9K" secondAttribute="trailing" constant="70" id="nS8-of-17z"/>
+                            <constraint firstItem="Sao-7v-QHV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="nQE-uP-At1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Escolha o nível" id="A2m-eY-Ldj"/>
                     <connections>
                         <outlet property="levelsCollectionView" destination="Sao-7v-QHV" id="kKJ-ZU-mMK"/>
-                        <outlet property="trainingButton" destination="Elq-LG-V9K" id="Acc-Tf-Yjf"/>
                         <segue destination="3yu-Pj-4c1" kind="show" identifier="StartActivitySegue" id="huK-Jj-h42"/>
                     </connections>
                 </viewController>

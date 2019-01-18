@@ -60,7 +60,10 @@ class ActivityComponent: UIView {
     }
     
     @IBAction func playAudio(_ sender: Any) {
-        print("PLAYING AUDIO")
+        print("PLAYING AUDIO: \(audio)")
+        
+        guard !audio.isEmpty else { return }
+        
         playAudioFile(withName: audio)
     }
     

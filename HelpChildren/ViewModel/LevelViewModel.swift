@@ -11,11 +11,11 @@ import Foundation
 class LevelViewModel {
     
     var levels: [Activity] = [Activity]()
-    var updateLevelsList: (()->())?
+    var updateMenu: (()->())?
     
     var menu: [Menu] = [Menu]() {
         didSet {
-            self.updateLevelsList?()
+            self.updateMenu?()
         }
     }
     
