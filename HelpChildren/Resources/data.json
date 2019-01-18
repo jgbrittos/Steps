@@ -242,12 +242,13 @@
             "audio2": "rain",
             "audio3": "pig"
         },
+        
         {
             "level": 1,
             "order": 1,
             "image1": "rain",
             "image2": "rain",
-            "image3": "",
+            "image3": "rain",
             "audio1": "rain",
             "audio2": "rain",
             "audio3": ""
@@ -256,7 +257,7 @@
             "level": 1,
             "order": 2,
             "image1": "door",
-            "image2": "",
+            "image2": "door",
             "image3": "door",
             "audio1": "door",
             "audio2": "",
@@ -267,7 +268,7 @@
             "order": 3,
             "image1": "dog",
             "image2": "dog",
-            "image3": "",
+            "image3": "dog",
             "audio1": "dog",
             "audio2": "dog",
             "audio3": ""
@@ -277,7 +278,7 @@
             "order": 4,
             "image1": "baby",
             "image2": "baby",
-            "image3": "",
+            "image3": "baby",
             "audio1": "baby",
             "audio2": "baby",
             "audio3": ""
@@ -286,7 +287,7 @@
             "level": 1,
             "order": 5,
             "image1": "pig",
-            "image2": "",
+            "image2": "pig",
             "image3": "pig",
             "audio1": "pig",
             "audio2": "",
@@ -296,7 +297,7 @@
             "level": 1,
             "order": 6,
             "image1": "door",
-            "image2": "",
+            "image2": "door",
             "image3": "door",
             "audio1": "door",
             "audio2": "",
@@ -307,7 +308,7 @@
             "order": 7,
             "image1": "rain",
             "image2": "rain",
-            "image3": "",
+            "image3": "rain",
             "audio1": "rain",
             "audio2": "rain",
             "audio3": ""
@@ -317,7 +318,7 @@
             "order": 8,
             "image1": "baby",
             "image2": "baby",
-            "image3": "",
+            "image3": "baby",
             "audio1": "baby",
             "audio2": "baby",
             "audio3": ""
@@ -326,7 +327,7 @@
             "level": 1,
             "order": 9,
             "image1": "dog",
-            "image2": "",
+            "image2": "dog",
             "image3": "dog",
             "audio1": "dog",
             "audio2": "",
@@ -337,7 +338,7 @@
             "order": 10,
             "image1": "pig",
             "image2": "pig",
-            "image3": "",
+            "image3": "pig",
             "audio1": "pig",
             "audio2": "pig",
             "audio3": ""
@@ -346,7 +347,7 @@
             "level": 1,
             "order": 11,
             "image1": "rain",
-            "image2": "",
+            "image2": "rain",
             "image3": "rain",
             "audio1": "rain",
             "audio2": "",
@@ -356,7 +357,7 @@
             "level": 1,
             "order": 12,
             "image1": "baby",
-            "image2": "",
+            "image2": "baby",
             "image3": "baby",
             "audio1": "baby",
             "audio2": "",
@@ -367,7 +368,7 @@
             "order": 13,
             "image1": "pig",
             "image2": "pig",
-            "image3": "",
+            "image3": "pig",
             "audio1": "pig",
             "audio2": "pig",
             "audio3": ""
@@ -376,7 +377,7 @@
             "level": 1,
             "order": 14,
             "image1": "dog",
-            "image2": "",
+            "image2": "dog",
             "image3": "dog",
             "audio1": "dog",
             "audio2": "",
@@ -387,7 +388,7 @@
             "order": 15,
             "image1": "door",
             "image2": "door",
-            "image3": "",
+            "image3": "door",
             "audio1": "door",
             "audio2": "door",
             "audio3": ""
@@ -397,7 +398,7 @@
             "order": 16,
             "image1": "rain",
             "image2": "rain",
-            "image3": "",
+            "image3": "rain",
             "audio1": "rain",
             "audio2": "rain",
             "audio3": ""
@@ -406,7 +407,7 @@
             "level": 1,
             "order": 17,
             "image1": "baby",
-            "image2": "",
+            "image2": "baby",
             "image3": "baby",
             "audio1": "baby",
             "audio2": "",
@@ -416,7 +417,7 @@
             "level": 1,
             "order": 18,
             "image1": "dog",
-            "image2": "",
+            "image2": "dog",
             "image3": "dog",
             "audio1": "dog",
             "audio2": "",
@@ -427,7 +428,7 @@
             "order": 19,
             "image1": "pig",
             "image2": "pig",
-            "image3": "",
+            "image3": "pig",
             "audio1": "pig",
             "audio2": "pig",
             "audio3": ""
@@ -436,11 +437,213 @@
             "level": 1,
             "order": 20,
             "image1": "door",
-            "image2": "",
+            "image2": "door",
             "image3": "door",
             "audio1": "door",
             "audio2": "",
             "audio3": "door"
         }
+        ,
+        {
+            "level": 2,
+            "order": 1,
+            "image1": "rain",
+            "image2": "rain",
+            "image3": "rain",
+            "audio1": "rain",
+            "audio2": "rain",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 2,
+            "image1": "door",
+            "image2": "door",
+            "image3": "door",
+            "audio1": "door",
+            "audio2": "",
+            "audio3": "door"
+        },
+        {
+            "level": 2,
+            "order": 3,
+            "image1": "dog",
+            "image2": "dog",
+            "image3": "dog",
+            "audio1": "dog",
+            "audio2": "dog",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 4,
+            "image1": "baby",
+            "image2": "baby",
+            "image3": "baby",
+            "audio1": "baby",
+            "audio2": "baby",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 5,
+            "image1": "pig",
+            "image2": "pig",
+            "image3": "pig",
+            "audio1": "pig",
+            "audio2": "",
+            "audio3": "pig"
+        },
+        {
+            "level": 2,
+            "order": 6,
+            "image1": "door",
+            "image2": "door",
+            "image3": "door",
+            "audio1": "door",
+            "audio2": "",
+            "audio3": "door"
+        },
+        {
+            "level": 2,
+            "order": 7,
+            "image1": "rain",
+            "image2": "rain",
+            "image3": "rain",
+            "audio1": "rain",
+            "audio2": "rain",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 8,
+            "image1": "baby",
+            "image2": "baby",
+            "image3": "baby",
+            "audio1": "baby",
+            "audio2": "baby",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 9,
+            "image1": "dog",
+            "image2": "dog",
+            "image3": "dog",
+            "audio1": "dog",
+            "audio2": "",
+            "audio3": "dog"
+        },
+        {
+            "level": 2,
+            "order": 10,
+            "image1": "pig",
+            "image2": "pig",
+            "image3": "pig",
+            "audio1": "pig",
+            "audio2": "pig",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 11,
+            "image1": "rain",
+            "image2": "rain",
+            "image3": "rain",
+            "audio1": "rain",
+            "audio2": "",
+            "audio3": "rain"
+        },
+        {
+            "level": 2,
+            "order": 12,
+            "image1": "baby",
+            "image2": "baby",
+            "image3": "baby",
+            "audio1": "baby",
+            "audio2": "",
+            "audio3": "baby"
+        },
+        {
+            "level": 2,
+            "order": 13,
+            "image1": "pig",
+            "image2": "pig",
+            "image3": "pig",
+            "audio1": "pig",
+            "audio2": "pig",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 14,
+            "image1": "dog",
+            "image2": "dog",
+            "image3": "dog",
+            "audio1": "dog",
+            "audio2": "",
+            "audio3": "dog"
+        },
+        {
+            "level": 2,
+            "order": 15,
+            "image1": "door",
+            "image2": "door",
+            "image3": "door",
+            "audio1": "door",
+            "audio2": "door",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 16,
+            "image1": "rain",
+            "image2": "rain",
+            "image3": "rain",
+            "audio1": "rain",
+            "audio2": "rain",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 17,
+            "image1": "baby",
+            "image2": "baby",
+            "image3": "baby",
+            "audio1": "baby",
+            "audio2": "",
+            "audio3": "baby"
+        },
+        {
+            "level": 2,
+            "order": 18,
+            "image1": "dog",
+            "image2": "dog",
+            "image3": "dog",
+            "audio1": "dog",
+            "audio2": "",
+            "audio3": "dog"
+        },
+        {
+            "level": 2,
+            "order": 19,
+            "image1": "pig",
+            "image2": "pig",
+            "image3": "pig",
+            "audio1": "pig",
+            "audio2": "pig",
+            "audio3": ""
+        },
+        {
+            "level": 2,
+            "order": 20,
+            "image1": "door",
+            "image2": "door",
+            "image3": "door",
+            "audio1": "door",
+            "audio2": "",
+            "audio3": "door"
+        }
+        
     ]
 }

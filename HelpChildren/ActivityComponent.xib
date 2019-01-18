@@ -26,7 +26,7 @@
                     </constraints>
                 </imageView>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IEb-Ca-UtB">
-                    <rect key="frame" x="30" y="288" width="240" height="2"/>
+                    <rect key="frame" x="30" y="293" width="240" height="2"/>
                 </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXu-sZ-0Rc">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -38,7 +38,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="IEb-Ca-UtB" secondAttribute="trailing" constant="30" id="0MD-ZC-meB"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="IEb-Ca-UtB" secondAttribute="bottom" constant="10" id="5Ew-QR-GHq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="IEb-Ca-UtB" secondAttribute="bottom" constant="5" id="5Ew-QR-GHq"/>
                 <constraint firstItem="47D-wy-n0Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="AJy-gs-sZ8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vXu-sZ-0Rc" secondAttribute="trailing" id="NA2-dM-EYj"/>
                 <constraint firstItem="CDi-r1-Izy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="TwV-RA-k1C"/>

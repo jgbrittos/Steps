@@ -87,13 +87,21 @@
 		C32E640021F13EB9005BDBEB /* Audios */ = {
 			isa = PBXGroup;
 			children = (
+				C32E640821F27477005BDBEB /* Training_1_2_3 */,
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
+		C32E640821F27477005BDBEB /* Training_1_2_3 */ = {
+			isa = PBXGroup;
+			children = (
 				C32E63F721F13EB3005BDBEB /* baby.mp3 */,
 				C32E63F621F13EB3005BDBEB /* dog.mp3 */,
 				C32E63FA21F13EB3005BDBEB /* door.mp3 */,
 				C32E63F821F13EB3005BDBEB /* pig.mp3 */,
 				C32E63F921F13EB3005BDBEB /* rain.mp3 */,
 			);
-			path = Audios;
+			path = Training_1_2_3;
 			sourceTree = "<group>";
 		};
 		C340B95C21B564E400655BA1 /* Resources */ = {
