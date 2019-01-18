@@ -84,7 +84,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C32E640021F13EB9005BDBEB /* Audios */ = {
+		C32E640021F13EB9005BDBEB /* Training_1_2_3 */ = {
 			isa = PBXGroup;
 			children = (
 				C32E63F721F13EB3005BDBEB /* baby.mp3 */,
@@ -93,13 +93,13 @@
 				C32E63F821F13EB3005BDBEB /* pig.mp3 */,
 				C32E63F921F13EB3005BDBEB /* rain.mp3 */,
 			);
-			path = Audios;
+			path = Training_1_2_3;
 			sourceTree = "<group>";
 		};
 		C340B95C21B564E400655BA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C32E640021F13EB9005BDBEB /* Audios */,
+				C32E640021F13EB9005BDBEB /* Training_1_2_3 */,
 				C32E63EA21F126F6005BDBEB /* data.json */,
 				C340B96021B57F5300655BA1 /* Assets.xcassets */,
 				C3C6F0D421B5487A00608406 /* LaunchScreen.storyboard */,
