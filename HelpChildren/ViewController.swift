@@ -9,10 +9,14 @@
 import UIKit
 
 let START_ACTIVITY_SEGUE = "StartActivitySegue"
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
     @IBOutlet weak var levelsCollectionView: UICollectionView!
     @IBOutlet weak var trainingButton: UIButton!
+    
+    lazy var viewModel: LevelViewModel = {
+        return LevelViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +28,24 @@ class ViewController: UIViewController {
         self.trainingButton.layer.shadowOpacity = 0.2
         self.trainingButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         
-        LevelViewModel().loadData()
+        initVM()
     }
 
+    func initVM() {
+        
+        viewModel.updateLevelsList = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.levelsCollectionView.reloadData()
+            }
+        }
+        
+        viewModel.loadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == START_ACTIVITY_SEGUE {
             let vc = segue.destination as! ActivityViewController
-            vc.level = sender as? Int ?? 0
+            vc.viewModel.activities = viewModel.filterBy(level: sender as? Int ?? 0)
         }
     }
     
@@ -41,14 +56,15 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return viewModel.menu.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelCollectionViewCell
-        cell.levelImage.image = UIImage(named: "dog")
-        cell.levelLabel.text = "Nível \(indexPath.row + 1)"
+        let menu = viewModel.menu[indexPath.row]
+        cell.levelImage.image = UIImage(named: menu.image)
+        cell.levelLabel.text = menu.levelDescription
         
         return cell
     }

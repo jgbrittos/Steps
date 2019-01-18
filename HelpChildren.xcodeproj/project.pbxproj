@@ -12,10 +12,15 @@
 		C32E63EF21F12A41005BDBEB /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E63EE21F12A41005BDBEB /* LevelViewModel.swift */; };
 		C32E63F221F1336A005BDBEB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E63F121F1336A005BDBEB /* Level.swift */; };
 		C32E63F421F13372005BDBEB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E63F321F13372005BDBEB /* Activity.swift */; };
+		C32E63FB21F13EB3005BDBEB /* dog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C32E63F621F13EB3005BDBEB /* dog.mp3 */; };
+		C32E63FC21F13EB3005BDBEB /* baby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C32E63F721F13EB3005BDBEB /* baby.mp3 */; };
+		C32E63FD21F13EB3005BDBEB /* pig.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C32E63F821F13EB3005BDBEB /* pig.mp3 */; };
+		C32E63FE21F13EB3005BDBEB /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C32E63F921F13EB3005BDBEB /* rain.mp3 */; };
+		C32E63FF21F13EB3005BDBEB /* door.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C32E63FA21F13EB3005BDBEB /* door.mp3 */; };
+		C32E640221F1647A005BDBEB /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E640121F1647A005BDBEB /* Menu.swift */; };
 		C340B95B21B564D100655BA1 /* ActivityComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = C340B95A21B564D100655BA1 /* ActivityComponent.xib */; };
 		C340B95E21B567B900655BA1 /* ActivityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C340B95D21B567B900655BA1 /* ActivityComponent.swift */; };
 		C340B96121B57F5300655BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C340B96021B57F5300655BA1 /* Assets.xcassets */; };
-		C340B96B21B58B2B00655BA1 /* audio_dog_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C340B96A21B58B2B00655BA1 /* audio_dog_2.mp3 */; };
 		C3C6F0CC21B5487800608406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6F0CB21B5487800608406 /* AppDelegate.swift */; };
 		C3C6F0CE21B5487800608406 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6F0CD21B5487800608406 /* ViewController.swift */; };
 		C3C6F0D121B5487800608406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C6F0CF21B5487800608406 /* Main.storyboard */; };
@@ -30,10 +35,15 @@
 		C32E63EE21F12A41005BDBEB /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
 		C32E63F121F1336A005BDBEB /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		C32E63F321F13372005BDBEB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		C32E63F621F13EB3005BDBEB /* dog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dog.mp3; sourceTree = "<group>"; };
+		C32E63F721F13EB3005BDBEB /* baby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = baby.mp3; sourceTree = "<group>"; };
+		C32E63F821F13EB3005BDBEB /* pig.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pig.mp3; sourceTree = "<group>"; };
+		C32E63F921F13EB3005BDBEB /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
+		C32E63FA21F13EB3005BDBEB /* door.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door.mp3; sourceTree = "<group>"; };
+		C32E640121F1647A005BDBEB /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		C340B95A21B564D100655BA1 /* ActivityComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityComponent.xib; sourceTree = "<group>"; };
 		C340B95D21B567B900655BA1 /* ActivityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityComponent.swift; sourceTree = "<group>"; };
 		C340B96021B57F5300655BA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HelpChildren/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		C340B96A21B58B2B00655BA1 /* audio_dog_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_dog_2.mp3; sourceTree = "<group>"; };
 		C3C6F0C821B5487800608406 /* HelpChildren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpChildren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C6F0CB21B5487800608406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C6F0CD21B5487800608406 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,16 +70,36 @@
 			children = (
 				C32E63EE21F12A41005BDBEB /* LevelViewModel.swift */,
 				C32E63EC21F12A20005BDBEB /* ActivityViewModel.swift */,
-				C32E63F121F1336A005BDBEB /* Level.swift */,
-				C32E63F321F13372005BDBEB /* Activity.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C32E63F521F134C0005BDBEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C32E63F121F1336A005BDBEB /* Level.swift */,
+				C32E63F321F13372005BDBEB /* Activity.swift */,
+				C32E640121F1647A005BDBEB /* Menu.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C32E640021F13EB9005BDBEB /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				C32E63F721F13EB3005BDBEB /* baby.mp3 */,
+				C32E63F621F13EB3005BDBEB /* dog.mp3 */,
+				C32E63FA21F13EB3005BDBEB /* door.mp3 */,
+				C32E63F821F13EB3005BDBEB /* pig.mp3 */,
+				C32E63F921F13EB3005BDBEB /* rain.mp3 */,
+			);
+			path = Audios;
 			sourceTree = "<group>";
 		};
 		C340B95C21B564E400655BA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C340B96A21B58B2B00655BA1 /* audio_dog_2.mp3 */,
+				C32E640021F13EB9005BDBEB /* Audios */,
 				C32E63EA21F126F6005BDBEB /* data.json */,
 				C340B96021B57F5300655BA1 /* Assets.xcassets */,
 				C3C6F0D421B5487A00608406 /* LaunchScreen.storyboard */,
@@ -100,10 +130,11 @@
 				C3C6F0CB21B5487800608406 /* AppDelegate.swift */,
 				C3C6F0CF21B5487800608406 /* Main.storyboard */,
 				C3C6F0CD21B5487800608406 /* ViewController.swift */,
-				C3C6F0EB21B551A300608406 /* LevelCollectionViewCell.swift */,
 				C3C6F0EF21B55A6600608406 /* ActivityViewController.swift */,
 				C340B95A21B564D100655BA1 /* ActivityComponent.xib */,
 				C340B95D21B567B900655BA1 /* ActivityComponent.swift */,
+				C3C6F0EB21B551A300608406 /* LevelCollectionViewCell.swift */,
+				C32E63F521F134C0005BDBEB /* Model */,
 				C32E63F021F12A6F005BDBEB /* ViewModel */,
 				C340B95C21B564E400655BA1 /* Resources */,
 			);
@@ -169,11 +200,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3C6F0D621B5487A00608406 /* LaunchScreen.storyboard in Resources */,
+				C32E63FC21F13EB3005BDBEB /* baby.mp3 in Resources */,
+				C32E63FE21F13EB3005BDBEB /* rain.mp3 in Resources */,
 				C32E63EB21F126F6005BDBEB /* data.json in Resources */,
 				C340B95B21B564D100655BA1 /* ActivityComponent.xib in Resources */,
+				C32E63FB21F13EB3005BDBEB /* dog.mp3 in Resources */,
+				C32E63FF21F13EB3005BDBEB /* door.mp3 in Resources */,
+				C32E63FD21F13EB3005BDBEB /* pig.mp3 in Resources */,
 				C340B96121B57F5300655BA1 /* Assets.xcassets in Resources */,
 				C3C6F0D121B5487800608406 /* Main.storyboard in Resources */,
-				C340B96B21B58B2B00655BA1 /* audio_dog_2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +223,7 @@
 				C3C6F0CE21B5487800608406 /* ViewController.swift in Sources */,
 				C3C6F0CC21B5487800608406 /* AppDelegate.swift in Sources */,
 				C340B95E21B567B900655BA1 /* ActivityComponent.swift in Sources */,
+				C32E640221F1647A005BDBEB /* Menu.swift in Sources */,
 				C32E63EF21F12A41005BDBEB /* LevelViewModel.swift in Sources */,
 				C3C6F0F021B55A6600608406 /* ActivityViewController.swift in Sources */,
 				C32E63F421F13372005BDBEB /* Activity.swift in Sources */,

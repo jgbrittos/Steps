@@ -10,59 +10,91 @@ import UIKit
 import AVFoundation
 
 class ActivityViewController: UIViewController {
-
-    var level: Int?
-    
     @IBOutlet weak var component1: UIView!
     @IBOutlet weak var component2: UIView!
     @IBOutlet weak var component3: UIView!
-    @IBOutlet weak var previousQuestionButton: UIButton!
+    @IBOutlet weak var previousActivityButton: UIButton!
+    @IBOutlet weak var nextActivityButton: UIButton!
     
-    let totalQuestions = 50
+    lazy var viewModel: ActivityViewModel = {
+        return ActivityViewModel()
+    }()
+    
+//    var activities: [Activity]!
+    var totalQuestions = 20
     var question = 1
+    
+    let c1 = ActivityComponent.instanceFromNib()
+    let c2 = ActivityComponent.instanceFromNib()
+    let c3 = ActivityComponent.instanceFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.previousQuestionButton.isHidden = true
-        self.updateTitle()
-
-        let c1 = ActivityComponent.instanceFromNib()
-        c1.set(image: UIImage(named:"dog")!)
-        c1.setAudio(progress: 0)
-        c1.setAudioIndicator(true)
+        previousActivityButton.isHidden = true
+        
+        initComponents()
+        initVM()
+        updateActivityBy(order: 1)
+    }
+    
+    func initComponents() {
         c1.frame = CGRect(x: 0, y: 0, width: component1.frame.width, height: component1.frame.height)
         component1.addSubview(c1)
         
-        let c2 = ActivityComponent.instanceFromNib()
-        c2.set(image: UIImage(named:"dog")!)
-        c2.setAudio(progress: 0)
-        c2.setAudioIndicator(true)
         c2.frame = CGRect(x: 0, y: 0, width: component2.frame.width, height: component2.frame.height)
         component2.addSubview(c2)
         
-        let c3 = ActivityComponent.instanceFromNib()
-        c3.set(image: UIImage(named:"dog")!)
-        c3.setAudio(progress: 0)
-        c3.setAudioIndicator(true)
         c3.frame = CGRect(x: 0, y: 0, width: component3.frame.width, height: component3.frame.height)
         component3.addSubview(c3)
     }
     
-    @IBAction func previousQuestion(_ sender: Any) {
+    func initVM() {
+        totalQuestions = viewModel.activities.count
         
-        self.question -= 1
-        self.previousQuestionButton.isHidden = question == 1
-        self.updateTitle()
+        viewModel.updateActivity = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.setupComponentsActivity(with: self!.viewModel.activity)
+            }
+        }
+        
+        viewModel.controlNextButtonVisibility = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.nextActivityButton.isHidden = self?.question == self!.totalQuestions
+            }
+        }
+        
+        viewModel.controlPreviousButtonVisibility = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.previousActivityButton.isHidden = self?.question == 1
+            }
+        }
+    }
+    
+    func setupComponentsActivity(with activity: Activity) {
+        c1.set(image: UIImage(named: activity.image1) ?? #imageLiteral(resourceName: "no_image"))
+        c1.setAudio(activity.audio1)
+        
+        c2.set(image: UIImage(named: activity.image2) ?? #imageLiteral(resourceName: "no_image"))
+        c2.setAudio(activity.audio2)
+        
+        c3.set(image: UIImage(named: activity.image3) ?? #imageLiteral(resourceName: "no_image"))
+        c3.setAudio(activity.audio3)
+    }
+    
+    @IBAction func previousQuestion(_ sender: Any) {
+        question -= 1
+        updateActivityBy(order: question)
     }
     
     @IBAction func nextQuestion(_ sender: Any) {
-        self.question += 1
-        self.previousQuestionButton.isHidden = !(question > 1)
-        self.updateTitle()
+        question += 1
+        updateActivityBy(order: question)
     }
     
-    func updateTitle() {
-        self.title = "\(question)/\(totalQuestions)"
+    private func updateActivityBy(order: Int) {
+        title = "\(question)/\(totalQuestions)"
+        viewModel.currentQuestionOrder = question
+        viewModel.getActivityBy(order: order)
     }
 }

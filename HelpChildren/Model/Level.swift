@@ -8,8 +8,11 @@
 
 import Foundation
 
-struct Level: Codable {
-    var levels: [Activity]
+class Level: Codable {
+    var menu: [Menu]!
+    var levels: [Activity]!
+    
+    init() {}
 }
 
 extension Level: CustomStringConvertible {

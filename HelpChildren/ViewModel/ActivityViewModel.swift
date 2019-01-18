@@ -9,4 +9,27 @@
 import Foundation
 
 class ActivityViewModel {
+    
+    var updateActivity: (()->())?
+    var controlPreviousButtonVisibility: (()->())?
+    var controlNextButtonVisibility: (()->())?
+    
+    var activities: [Activity] = [Activity]()
+    
+    var activity: Activity = Activity() {
+        didSet {
+            updateActivity?()
+        }
+    }
+    
+    var currentQuestionOrder: Int = 1 {
+        didSet {
+            controlPreviousButtonVisibility?()
+            controlNextButtonVisibility?()
+        }
+    }
+    
+    func getActivityBy(order: Int) {
+         activity = activities[order - 1]
+    }
 }

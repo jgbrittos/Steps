@@ -17,6 +17,7 @@ class ActivityComponent: UIView {
     @IBOutlet weak var playAudioButton: UIButton!
     
     var player = AVAudioPlayer()
+    var audio: String = ""
     
     class func instanceFromNib() -> ActivityComponent {
         guard let card = UINib(nibName: "ActivityComponent", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? ActivityComponent else {
@@ -54,10 +55,13 @@ class ActivityComponent: UIView {
         self.audioIndicatorImageView.isHidden = !hide
     }
     
+    func setAudio(_ name: String) {
+        self.audio = name
+    }
+    
     @IBAction func playAudio(_ sender: Any) {
-        print("PLAY AUDIO")
-
-        playAudioFile(withName: "audio_dog_2")
+        print("PLAYING AUDIO")
+        playAudioFile(withName: audio)
     }
     
     func playAudioFile(withName name: String) {
