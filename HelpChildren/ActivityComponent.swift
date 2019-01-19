@@ -63,6 +63,7 @@ class ActivityComponent: UIView {
     @IBAction func playAudio(_ sender: Any) {
         guard audio != "nan" else { return }
         audioProgressBar.isHidden = false
+        print(audio)
         playAudioFile(withName: audio)
     }
     

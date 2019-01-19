@@ -181,7 +181,7 @@ class LevelViewModel {
             let s = environementSounds[i]
             a.audio1 = s
             a.audio2 = s
-            a.audio3 = "nan"
+            a.audio3 = environementSounds.getRandom(except: s)
         }
         
         //A-C -> B
@@ -189,12 +189,11 @@ class LevelViewModel {
             let a = activities[i]
             let s = environementSounds[i - 10]
             a.audio1 = s
-            a.audio2 = "nan"
+            a.audio2 = environementSounds.getRandom(except: s)
             a.audio3 = s
         }
         
         return activities.shuffled().shuffled().shuffled()
-        return []
     }
     
     //daqui pra frente é tudo igual
@@ -288,5 +287,12 @@ class LevelViewModel {
          Raso
          */
         return []
+    }
+}
+
+//extension Array where Generator.Element: String {
+extension Sequence where Iterator.Element == String {
+    func getRandom(except: String) -> String {
+        return self.filter { $0 != except }.randomElement()!
     }
 }
