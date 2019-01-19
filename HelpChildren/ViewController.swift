@@ -39,13 +39,15 @@ class ViewController: UIViewController {
             }
         }
         
-        viewModel.loadData()
+        viewModel.loadMenu()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == START_ACTIVITY_SEGUE {
+            let level = LevelNumber(rawValue: sender as? Int ?? 0)!
+            
             let vc = segue.destination as! ActivityViewController
-            vc.viewModel.activities = viewModel.filterBy(level: sender as? Int ?? 0)
+            vc.viewModel.activities = viewModel.generate(level: level)
         }
     }
     
@@ -63,16 +65,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as! LevelCollectionViewCell
         let menu = viewModel.menu[indexPath.row]
-        cell.levelImage.image = UIImage(named: menu.image)
-        cell.levelLabel.text = menu.levelDescription
+        cell.setup(with: menu)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        
-        self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: indexPath.row)
+        self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: indexPath.row + 1)
     }
 }
 
@@ -90,8 +89,4 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 25.0
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 5.0
-//    }
 }

@@ -10,13 +10,23 @@ import Foundation
 
 class Level: Codable {
     var menu: [Menu]!
-    var levels: [Activity]!
+    var training: [Activity]!
     
     init() {}
 }
 
 extension Level: CustomStringConvertible {
     var description: String {
-        return "{\n\tlevels: \(levels.count)\n}"
+        return "{\n\tlevels: \(training.count)\n}"
     }
+}
+
+enum LevelNumber: Int {
+    case training = 0
+    case one, two, three, four, five, six, seven, eight, nine
+}
+
+enum LevelName: String {
+    case training = "Treinamento"
+    case other = ""
 }

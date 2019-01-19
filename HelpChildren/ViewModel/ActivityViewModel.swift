@@ -30,6 +30,7 @@ class ActivityViewModel {
     }
     
     func getActivityBy(order: Int) {
-         activity = activities[order - 1]
+        guard !activities.isEmpty else { return }
+        activity = activities[order - 1]
     }
 }

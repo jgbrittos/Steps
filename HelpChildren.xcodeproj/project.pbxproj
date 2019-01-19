@@ -18,9 +18,9 @@
 		C32E63FE21F13EB3005BDBEB /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C32E63F921F13EB3005BDBEB /* rain.mp3 */; };
 		C32E63FF21F13EB3005BDBEB /* door.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C32E63FA21F13EB3005BDBEB /* door.mp3 */; };
 		C32E640221F1647A005BDBEB /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E640121F1647A005BDBEB /* Menu.swift */; };
+		C32E640A21F296DA005BDBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32E640921F296DA005BDBEB /* Assets.xcassets */; };
 		C340B95B21B564D100655BA1 /* ActivityComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = C340B95A21B564D100655BA1 /* ActivityComponent.xib */; };
 		C340B95E21B567B900655BA1 /* ActivityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C340B95D21B567B900655BA1 /* ActivityComponent.swift */; };
-		C340B96121B57F5300655BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C340B96021B57F5300655BA1 /* Assets.xcassets */; };
 		C3C6F0CC21B5487800608406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6F0CB21B5487800608406 /* AppDelegate.swift */; };
 		C3C6F0CE21B5487800608406 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6F0CD21B5487800608406 /* ViewController.swift */; };
 		C3C6F0D121B5487800608406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C6F0CF21B5487800608406 /* Main.storyboard */; };
@@ -41,9 +41,9 @@
 		C32E63F921F13EB3005BDBEB /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
 		C32E63FA21F13EB3005BDBEB /* door.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door.mp3; sourceTree = "<group>"; };
 		C32E640121F1647A005BDBEB /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		C32E640921F296DA005BDBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HelpChildren/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		C340B95A21B564D100655BA1 /* ActivityComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityComponent.xib; sourceTree = "<group>"; };
 		C340B95D21B567B900655BA1 /* ActivityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityComponent.swift; sourceTree = "<group>"; };
-		C340B96021B57F5300655BA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HelpChildren/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		C3C6F0C821B5487800608406 /* HelpChildren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpChildren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C6F0CB21B5487800608406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C6F0CD21B5487800608406 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,9 +101,9 @@
 			children = (
 				C32E640021F13EB9005BDBEB /* Training_1_2_3 */,
 				C32E63EA21F126F6005BDBEB /* data.json */,
-				C340B96021B57F5300655BA1 /* Assets.xcassets */,
 				C3C6F0D421B5487A00608406 /* LaunchScreen.storyboard */,
 				C3C6F0D721B5487A00608406 /* Info.plist */,
+				C32E640921F296DA005BDBEB /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -203,11 +203,11 @@
 				C32E63FC21F13EB3005BDBEB /* baby.mp3 in Resources */,
 				C32E63FE21F13EB3005BDBEB /* rain.mp3 in Resources */,
 				C32E63EB21F126F6005BDBEB /* data.json in Resources */,
+				C32E640A21F296DA005BDBEB /* Assets.xcassets in Resources */,
 				C340B95B21B564D100655BA1 /* ActivityComponent.xib in Resources */,
 				C32E63FB21F13EB3005BDBEB /* dog.mp3 in Resources */,
 				C32E63FF21F13EB3005BDBEB /* door.mp3 in Resources */,
 				C32E63FD21F13EB3005BDBEB /* pig.mp3 in Resources */,
-				C340B96121B57F5300655BA1 /* Assets.xcassets in Resources */,
 				C3C6F0D121B5487800608406 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

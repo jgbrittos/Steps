@@ -23,6 +23,6 @@ class Activity: Codable {
 
 extension Activity: CustomStringConvertible {
     var description: String {
-        return "level: \(String(describing: level))"
+        return "order: \(String(describing: order))"
     }
 }

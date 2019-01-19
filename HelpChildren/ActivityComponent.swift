@@ -16,8 +16,9 @@ class ActivityComponent: UIView {
     @IBOutlet weak var audioIndicatorImageView: UIImageView!
     @IBOutlet weak var playAudioButton: UIButton!
     
-    var player = AVAudioPlayer()
-    var audio: String = ""
+    private var player = AVAudioPlayer()
+    private var audio: String = ""
+    private var timer: Timer!
     
     class func instanceFromNib() -> ActivityComponent {
         guard let card = UINib(nibName: "ActivityComponent", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? ActivityComponent else {
@@ -60,7 +61,8 @@ class ActivityComponent: UIView {
     }
     
     @IBAction func playAudio(_ sender: Any) {
-        print("PLAYING AUDIO")
+        guard audio != "nan" else { return }
+        audioProgressBar.isHidden = false
         playAudioFile(withName: audio)
     }
     
@@ -73,16 +75,29 @@ class ActivityComponent: UIView {
 
         do {
             player = try AVAudioPlayer(contentsOf: url)
-            Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioProgressBar), userInfo: nil, repeats: true)            
+            setupTimer()
         } catch let error {
             print(error.localizedDescription)
         }
 
         player.play()
-        
     }
     
-    @objc func updateAudioProgressBar() {
+    private func setupTimer() {
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01,
+                                     target: self,
+                                     selector: #selector(updateAudioProgressBar),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    @objc private func updateAudioProgressBar() {
+        audioProgressBar.isHidden = !player.isPlaying
         audioProgressBar.setProgress(player.isPlaying ? Float(player.currentTime/player.duration) : 0, animated: false)
     }
 }

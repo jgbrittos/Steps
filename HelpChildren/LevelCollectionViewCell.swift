@@ -32,4 +32,9 @@ class LevelCollectionViewCell: UICollectionViewCell {
 //        self.layer.masksToBounds = false
 //        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
+    
+    func setup(with menu: Menu) {
+        levelImage.image = UIImage(named: menu.image)
+        levelLabel.text = menu.levelDescription
+    }
 }
