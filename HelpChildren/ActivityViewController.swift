@@ -15,6 +15,7 @@ class ActivityViewController: UIViewController {
     @IBOutlet weak var component3: UIView!
     @IBOutlet weak var previousActivityButton: UIButton!
     @IBOutlet weak var nextActivityButton: UIButton!
+    @IBOutlet weak var questionOrderLabel: UILabel!
     
     lazy var viewModel: ActivityViewModel = {
         return ActivityViewModel()
@@ -23,19 +24,14 @@ class ActivityViewController: UIViewController {
 //    var activities: [Activity]!
     var totalQuestions = 20
     var question = 1
-    
     let c1 = ActivityComponent.instanceFromNib()
     let c2 = ActivityComponent.instanceFromNib()
     let c3 = ActivityComponent.instanceFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        previousActivityButton.isHidden = true
-        
         initComponents()
         initVM()
-        updateActivityBy(order: 1)
     }
     
     func initComponents() {
@@ -50,6 +46,8 @@ class ActivityViewController: UIViewController {
     }
     
     func initVM() {
+        title = viewModel.title
+        viewModel.titleLevel = viewModel.title
         totalQuestions = viewModel.activities.count
         
         viewModel.updateActivity = { [weak self] () in
@@ -69,6 +67,8 @@ class ActivityViewController: UIViewController {
                 self?.previousActivityButton.isHidden = self?.question == 1
             }
         }
+    
+        updateActivityBy(order: 1)
     }
     
     func setupComponentsActivity(with activity: Activity) {
@@ -93,7 +93,7 @@ class ActivityViewController: UIViewController {
     }
     
     private func updateActivityBy(order: Int) {
-        title = "\(question)/\(totalQuestions)"
+        questionOrderLabel.text = "\(question)/\(totalQuestions)"
         viewModel.currentQuestionOrder = question
         viewModel.getActivityBy(order: order)
     }

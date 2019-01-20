@@ -62,7 +62,6 @@ class ActivityComponent: UIView {
     
     @IBAction func playAudio(_ sender: Any) {
         guard audio != "nan" else { return }
-        audioProgressBar.isHidden = false
         print(audio)
         playAudioFile(withName: audio)
     }
@@ -71,8 +70,10 @@ class ActivityComponent: UIView {
 
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else {
             print("couldn't load file :(")
+            audioProgressBar.isHidden = true
             return
         }
+        audioProgressBar.isHidden = false
 
         do {
             player = try AVAudioPlayer(contentsOf: url)

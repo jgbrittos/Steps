@@ -13,8 +13,10 @@ class ActivityViewModel {
     var updateActivity: (()->())?
     var controlPreviousButtonVisibility: (()->())?
     var controlNextButtonVisibility: (()->())?
+    var updateLevelTitle: (()->())?
     
     var activities: [Activity] = [Activity]()
+    var title: String = "Nível"
     
     var activity: Activity = Activity() {
         didSet {

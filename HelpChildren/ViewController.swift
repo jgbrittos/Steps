@@ -44,10 +44,12 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == START_ACTIVITY_SEGUE {
-            let level = LevelNumber(rawValue: sender as? Int ?? 0)!
+            let levelNumber: Int = sender as? Int ?? 0
+            let level = LevelNumber(rawValue: levelNumber + 1)!
             
             let vc = segue.destination as! ActivityViewController
             vc.viewModel.activities = viewModel.generate(level: level)
+            vc.viewModel.title = viewModel.menu[levelNumber].levelDescription
         }
     }
     
@@ -71,7 +73,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: indexPath.row + 1)
+        self.performSegue(withIdentifier: START_ACTIVITY_SEGUE, sender: indexPath.row)
     }
 }
 

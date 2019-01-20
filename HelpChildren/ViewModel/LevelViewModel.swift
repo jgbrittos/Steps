@@ -149,7 +149,7 @@ class LevelViewModel {
     
     //TODO: adicionar o som neutro com o nome de neutral
     private func createLevel2() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .one)
+        let activities = createBaseShapesArrayFor(level: .two)
         
         //A-B -> C
         for i in 0...9 {
@@ -173,7 +173,7 @@ class LevelViewModel {
     }
     
     private func createLevel3() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .one)
+        let activities = createBaseShapesArrayFor(level: .three)
         
         //A-B -> C
         for i in 0...9 {
@@ -199,14 +199,61 @@ class LevelViewModel {
     //daqui pra frente é tudo igual
     //só muda os sons que serao tocados
     private func createLevel4() -> [Activity] {
+        let activities = createBaseShapesArrayFor(level: .four)
+        let sounds = ["pao", "boi", "cais", "mar", "gol", "pao", "boi", "cais", "mar", "gol"]
+        
+        //A-B -> C
+        for i in 0...9 {
+            let a = activities[i]
+            let s = sounds[i]
+            a.audio1 = s
+            a.audio2 = s
+            a.audio3 = sounds.getRandom(except: s)
+        }
+        
+        //A-C -> B
+        for i in 10...19 {
+            let a = activities[i]
+            let s = sounds[i - 10]
+            a.audio1 = s
+            a.audio2 = sounds.getRandom(except: s)
+            a.audio3 = s
+        }
+        
+        return activities.shuffled().shuffled().shuffled()
         /*
+         A-B Pão, C – Boi
+         A-B Pão, C – Cais
+         A-C Pão, B – Cais
+         A-C Pão, B – Mar
+
+         A-B Mar, C – Gol
+         A-B Mar, C – Pão
+         A-B Mar, C – Boi
+         A-C Mar, B – Gol
+
+         A-B Boi, C – Pão
+         A-B Boi, C – Cais
+         A-B Boi, C – Mar
+         A-C Boi, B – Mar
+
+         A-B Gol, C – Pão
+         A-C Gol, B – Cais
+         A-C Gol, B – Boi
+         A-C Gol, B – Pão
+
+         A-B Cais, C – Pão
+         A-B Cais, C – Mar
+         A-C Cais, B – Gol
+         A-C Cais, B – Boi
+
+         
          Pão
          Boi
          Gol
          Cais
          Mar
         */
-        return []
     }
     
     private func createLevel5() -> [Activity] {
