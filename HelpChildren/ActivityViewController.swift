@@ -20,8 +20,7 @@ class ActivityViewController: UIViewController {
     lazy var viewModel: ActivityViewModel = {
         return ActivityViewModel()
     }()
-    
-//    var activities: [Activity]!
+
     var totalQuestions = 20
     var question = 1
     let c1 = ActivityComponent.instanceFromNib()
@@ -46,7 +45,7 @@ class ActivityViewController: UIViewController {
     }
     
     func initVM() {
-        title = viewModel.title
+//        title = viewModel.title
         totalQuestions = viewModel.activities.count
         
         viewModel.updateActivity = { [weak self] () in
@@ -66,7 +65,14 @@ class ActivityViewController: UIViewController {
                 self?.previousActivityButton.isHidden = self?.question == 1
             }
         }
-    
+        
+        viewModel.updateLevelTitle = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.title = self?.viewModel.level == .training ? "Treinamento" : "Nível \(self?.viewModel.level.rawValue ?? 0)"
+            }
+        }
+        
+        viewModel.setupTitle()
         updateActivityBy(order: 1)
     }
     

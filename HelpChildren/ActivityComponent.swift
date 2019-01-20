@@ -29,15 +29,6 @@ class ActivityComponent: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-//        self.topView.round(corners: [.topLeft, .topRight])
-//        self.bottomView.round(corners: [.bottomLeft, .bottomRight])
-//        self.layer.shadowOffset = CGSize.zero
-//        self.layer.shadowRadius = 5
-//        self.layer.shadowColor = UIColor.black.cgColor
-//        self.layer.shadowOpacity = 0.2
-//        self.downloadLabel.isHidden = false
-//        self.downloadQuotationPDFButton.isHidden = false
-        
         self.layer.masksToBounds = false
         self.layer.shadowRadius = 5
         self.layer.shadowOpacity = 0.2
@@ -61,12 +52,12 @@ class ActivityComponent: UIView {
     }
     
     @IBAction func playAudio(_ sender: Any) {
-        guard audio != "nan" else { return }
+        guard !audio.isEmpty else { return }
         print(audio)
         playAudioFile(withName: audio)
     }
     
-    func playAudioFile(withName name: String) {
+    private func playAudioFile(withName name: String) {
 
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else {
             print("couldn't load file :(")

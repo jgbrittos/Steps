@@ -16,7 +16,7 @@ class ActivityViewModel {
     var updateLevelTitle: (()->())?
     
     var activities: [Activity] = [Activity]()
-    var title: String = "Nível"
+    var level: LevelNumber = .training
     
     var activity: Activity = Activity() {
         didSet {
@@ -34,5 +34,9 @@ class ActivityViewModel {
     func getActivityBy(order: Int) {
         guard !activities.isEmpty else { return }
         activity = activities[order - 1]
+    }
+
+    func setupTitle() {
+        updateLevelTitle?()
     }
 }

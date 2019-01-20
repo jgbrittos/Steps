@@ -9,7 +9,6 @@
 import Foundation
 
 class LevelViewModel {
-    private let shapes = ["square", "circle", "triangle", "rectangle", "star"]
     private let environementSounds = ["baby", "dog", "pig", "door", "rain", "baby", "dog", "pig", "door", "rain"]
     
     private var training: [Activity] = [Activity]()
@@ -22,6 +21,7 @@ class LevelViewModel {
     }
     
     func loadMenu() {
+        //TODO: separar a criacao do menu e do treinamento
         let url = Bundle.main.url(forResource: "data", withExtension: "json")!
 
         let jsonData = try! Data(contentsOf: url)
@@ -31,60 +31,23 @@ class LevelViewModel {
         menu = data.menu
     }
     
-//    func filterBy(_ level: LevelNumber = .training) -> [Activity] {
-//        return self.training.filter { $0.level == level.rawValue }
-//    }
-    
-    func generate(level: LevelNumber = .training) -> [Activity] {
+    func generate(level: LevelNumber) -> [Activity] {
         switch level {
+        case .training: return getTrainingLevel()
         case .one: return createLevel1()
         case .two: return createLevel2()
         case .three: return createLevel3()
-        case .four: return createLevel4()
-        case .five: return createLevel5()
-        case .six: return createLevel6()
-        case .seven: return createLevel7()
-        case .eight: return createLevel8()
-        case .nine: return createLevel9()
-        default: return getTrainingLevel()
+        case .four: return createLevel(.four)
+        case .five: return createLevel(.five)
+        case .six: return createLevel(.six)
+        case .seven: return createLevel(.seven)
+        case .eight: return createLevel(.eight)
+        case .nine: return createLevel(.nine)
         }
     }
     
     private func getTrainingLevel() -> [Activity] {
         return self.training
-    }
-    
-    //todas as formas de uma atividade sao iguais
-    private func createBaseShapesArrayFor(level: LevelNumber) -> [Activity] {
-        var activities = [Activity]()
-        
-        for j in 0..<5 {
-            
-            let shape = shapes[j]
-            
-            for _ in 0..<4 {
-                
-                let activity = Activity()
-                activity.level = level.rawValue
-                activity.order = 0
-                activity.image1 = shape
-                activity.image2 = shape
-                activity.image3 = shape
-                activity.audio1 = ""
-                activity.audio2 = ""
-                activity.audio3 = ""
-                activities.append(activity)
-            }
-        }
-        
-        var order = 1
-        activities = activities.shuffled().shuffled().map { (activity) in
-            activity.order = order
-            order += 1
-            return activity
-        }
-        
-        return activities.sorted { $0.order < $1.order }
     }
     
     private func createLevel1() -> [Activity] {
@@ -96,7 +59,7 @@ class LevelViewModel {
             let s = environementSounds[i]
             a.audio1 = s
             a.audio2 = s
-            a.audio3 = "nan"
+            a.audio3 = ""
         }
         
         //A-C -> B
@@ -104,51 +67,15 @@ class LevelViewModel {
             let a = activities[i]
             let s = environementSounds[i - 10]
             a.audio1 = s
-            a.audio2 = "nan"
+            a.audio2 = ""
             a.audio3 = s
         }
         
         return activities.shuffled().shuffled().shuffled()
-        /*
-         
-         A-B Chuva - C
-         A-B Bebê - C
-         A-B Porco - C
-         A-B Porta - C
-         A-B Cachorro - C
-         A-C Chuva - B
-         A-C Bebê - B
-         A-C Porco - B
-         A-C Porta - B
-         A-C Cachorro - B
-         eu editei pra cima
-         original pra baixo
-         A-B Chuva
-         A-B Chuva
-         A-C Chuva
-         A-B Chuva
-         A-C Bebê
-         A-B Bebê
-         A-B Bebê
-         A-C Bebê
-         A-B Porco
-         A-C Porco
-         A-B Porco
-         A-B Porco
-         A-C Porta
-         A-C Porta
-         A-B Porta
-         A-C Porta
-         A-B Cachorro
-         A-C Cachorro
-         A-C Cachorro
-         A-C Cachorro
-         
-         */
     }
     
-    //TODO: adicionar o som neutro com o nome de neutral
     private func createLevel2() -> [Activity] {
+        //TODO: adicionar o som neutro com o nome de neutral
         let activities = createBaseShapesArrayFor(level: .two)
         
         //A-B -> C
@@ -196,11 +123,33 @@ class LevelViewModel {
         return activities.shuffled().shuffled().shuffled()
     }
     
-    //daqui pra frente é tudo igual
-    //só muda os sons que serao tocados
-    private func createLevel4() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .four)
-        let sounds = ["Pao", "Boi", "Cais", "Mar", "Gol", "Pao", "Boi", "Cais", "Mar", "Gol"]
+    private func createLevel(_ level: LevelNumber) -> [Activity] {
+        var sounds:[String] = []
+        
+        switch level {
+        case .four:
+            sounds = ["Pao", "Boi", "Cais", "Mar", "Gol", "Pao", "Boi", "Cais", "Mar", "Gol"]
+        case .five:
+            sounds = ["Pe", "Pau", "Gol", "Gas", "Seu", "Sol", "Vai", "Voo", "Mel", "Meu"]
+        case .six:
+            sounds = ["Mão", "Tão", "Flor", "Cor", "Oi", "Boi", "Sou", "Gol", "Mês", "Fez"]
+        case .seven:
+            sounds = ["Bota", "Beija", "Manhã", "Meia", "Achei", "Abrir", "Preto", "Pata", "Quintal", "Quarto"]
+        case .eight:
+            sounds = ["Fato", "Gato", "Pega", "Nega", "Festa", "Testa", "Bola", "Cola", "Laços", "Braços"]
+        case .nine:
+            sounds = ["Lavar", "Largar", "Bruços", "Braços", "Faço", "Faça", "Secar", "Serrar", "Rabo", "Raso"]
+        default: return getTrainingLevel()
+        }
+        
+        return createLevel(level, with: sounds)
+    }
+    
+    private func createLevel(_ level: LevelNumber, with sounds: [String]) -> [Activity] {
+        //Todos tem a mesma figura geométrica
+        //10 B tem um som diferente de A e C
+        //10 C tem um som diferente de A e B
+        let activities = createBaseShapesArrayFor(level: level)
         
         //A-B -> C
         for i in 0...9 {
@@ -223,135 +172,44 @@ class LevelViewModel {
         return activities.shuffled().shuffled().shuffled()
     }
     
-    private func createLevel5() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .five)
-        let sounds = ["Pe", "Pau", "Gol", "Gas", "Seu", "Sol", "Vai", "Voo", "Mel", "Meu"]
+    private func createBaseShapesArrayFor(level: LevelNumber) -> [Activity] {
+        //Todas as imagens de uma atividade são iguais
+        let shapes = ["square", "circle", "triangle", "rectangle", "star"]
+        var activities = [Activity]()
         
-        //A-B -> C
-        for i in 0...9 {
-            let a = activities[i]
-            let s = sounds[i]
-            a.audio1 = s
-            a.audio2 = s
-            a.audio3 = sounds.getRandom(except: s)
+        for j in 0..<5 {
+            
+            let shape = shapes[j]
+            
+            for _ in 0..<4 {
+                
+                let activity = Activity()
+                activity.level = level.rawValue
+                activity.order = 0
+                activity.image1 = shape
+                activity.image2 = shape
+                activity.image3 = shape
+                activity.audio1 = ""
+                activity.audio2 = ""
+                activity.audio3 = ""
+                activities.append(activity)
+            }
         }
         
-        //A-C -> B
-        for i in 10...19 {
-            let a = activities[i]
-            let s = sounds[i - 10]
-            a.audio1 = s
-            a.audio2 = sounds.getRandom(except: s)
-            a.audio3 = s
+        var order = 1
+        activities = activities.shuffled().shuffled().map { (activity) in
+            activity.order = order
+            order += 1
+            return activity
         }
         
-        return activities.shuffled().shuffled().shuffled()
-    }
-    
-    private func createLevel6() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .six)
-        let sounds = ["Mão", "Tão", "Flor", "Cor", "Oi", "Boi", "Sou", "Gol", "Mês", "Fez"]
-
-        //A-B -> C
-        for i in 0...9 {
-            let a = activities[i]
-            let s = sounds[i]
-            a.audio1 = s
-            a.audio2 = s
-            a.audio3 = sounds.getRandom(except: s)
-        }
-        
-        //A-C -> B
-        for i in 10...19 {
-            let a = activities[i]
-            let s = sounds[i - 10]
-            a.audio1 = s
-            a.audio2 = sounds.getRandom(except: s)
-            a.audio3 = s
-        }
-        
-        return activities.shuffled().shuffled().shuffled()
-    }
-    
-    private func createLevel7() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .seven)
-        let sounds = ["Bota", "Beija", "Manhã", "Meia", "Achei", "Abrir", "Preto", "Pata", "Quintal", "Quarto"]
-        
-        //A-B -> C
-        for i in 0...9 {
-            let a = activities[i]
-            let s = sounds[i]
-            a.audio1 = s
-            a.audio2 = s
-            a.audio3 = sounds.getRandom(except: s)
-        }
-        
-        //A-C -> B
-        for i in 10...19 {
-            let a = activities[i]
-            let s = sounds[i - 10]
-            a.audio1 = s
-            a.audio2 = sounds.getRandom(except: s)
-            a.audio3 = s
-        }
-        
-        return activities.shuffled().shuffled().shuffled()
-    }
-    
-    private func createLevel8() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .eight)
-        let sounds = ["Fato", "Gato", "Pega", "Nega", "Festa", "Testa", "Bola", "Cola", "Laços", "Braços"]
-        
-        //A-B -> C
-        for i in 0...9 {
-            let a = activities[i]
-            let s = sounds[i]
-            a.audio1 = s
-            a.audio2 = s
-            a.audio3 = sounds.getRandom(except: s)
-        }
-        
-        //A-C -> B
-        for i in 10...19 {
-            let a = activities[i]
-            let s = sounds[i - 10]
-            a.audio1 = s
-            a.audio2 = sounds.getRandom(except: s)
-            a.audio3 = s
-        }
-        
-        return activities.shuffled().shuffled().shuffled()
-    }
-    
-    private func createLevel9() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .five)
-        let sounds = ["Lavar", "Largar", "Bruços", "Braços", "Faço", "Faça", "Secar", "Serrar", "Rabo", "Raso"]        
-        
-        //A-B -> C
-        for i in 0...9 {
-            let a = activities[i]
-            let s = sounds[i]
-            a.audio1 = s
-            a.audio2 = s
-            a.audio3 = sounds.getRandom(except: s)
-        }
-        
-        //A-C -> B
-        for i in 10...19 {
-            let a = activities[i]
-            let s = sounds[i - 10]
-            a.audio1 = s
-            a.audio2 = sounds.getRandom(except: s)
-            a.audio3 = s
-        }
-        
-        return activities.shuffled().shuffled().shuffled()
+        return activities.sorted { $0.order < $1.order }
     }
 }
 
 //extension Array where Generator.Element: String {
 extension Sequence where Iterator.Element == String {
     func getRandom(except: String) -> String {
-        return self.filter { $0 != except }.randomElement()!
+        return self.filter { $0 != except }.randomElement() ?? except
     }
 }
