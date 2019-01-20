@@ -47,7 +47,6 @@ class ActivityViewController: UIViewController {
     
     func initVM() {
         title = viewModel.title
-        viewModel.titleLevel = viewModel.title
         totalQuestions = viewModel.activities.count
         
         viewModel.updateActivity = { [weak self] () in
