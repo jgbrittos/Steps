@@ -34,15 +34,9 @@ class LevelViewModel {
     func generate(level: LevelNumber) -> [Activity] {
         switch level {
         case .training: return getTrainingLevel()
-        case .one: return createLevel1()
-        case .two: return createLevel2()
-        case .three: return createLevel3()
-        case .four: return createLevel(.four)
-        case .five: return createLevel(.five)
-        case .six: return createLevel(.six)
-        case .seven: return createLevel(.seven)
-        case .eight: return createLevel(.eight)
-        case .nine: return createLevel(.nine)
+        case .one: return create(level, withSpecialSound: "")
+        case .two: return create(level, withSpecialSound: "neutral")
+        default: return create(level)
         }
     }
     
@@ -50,8 +44,8 @@ class LevelViewModel {
         return self.training
     }
     
-    private func createLevel1() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .one)
+    private func create(_ level: LevelNumber, withSpecialSound sound: String) -> [Activity] {
+        let activities = createBaseShapesArrayFor(level: level)
         
         //A-B -> C
         for i in 0...9 {
@@ -59,7 +53,7 @@ class LevelViewModel {
             let s = environementSounds[i]
             a.audio1 = s
             a.audio2 = s
-            a.audio3 = ""
+            a.audio3 = sound
         }
         
         //A-C -> B
@@ -67,66 +61,19 @@ class LevelViewModel {
             let a = activities[i]
             let s = environementSounds[i - 10]
             a.audio1 = s
-            a.audio2 = ""
+            a.audio2 = sound
             a.audio3 = s
         }
         
         return activities.shuffled().shuffled().shuffled()
     }
     
-    private func createLevel2() -> [Activity] {
-        //TODO: adicionar o som neutro com o nome de neutral
-        let activities = createBaseShapesArrayFor(level: .two)
-        
-        //A-B -> C
-        for i in 0...9 {
-            let a = activities[i]
-            let s = environementSounds[i]
-            a.audio1 = s
-            a.audio2 = s
-            a.audio3 = "neutral"
-        }
-        
-        //A-C -> B
-        for i in 10...19 {
-            let a = activities[i]
-            let s = environementSounds[i - 10]
-            a.audio1 = s
-            a.audio2 = "neutral"
-            a.audio3 = s
-        }
-        
-        return activities.shuffled().shuffled().shuffled()
-    }
-    
-    private func createLevel3() -> [Activity] {
-        let activities = createBaseShapesArrayFor(level: .three)
-        
-        //A-B -> C
-        for i in 0...9 {
-            let a = activities[i]
-            let s = environementSounds[i]
-            a.audio1 = s
-            a.audio2 = s
-            a.audio3 = environementSounds.getRandom(except: s)
-        }
-        
-        //A-C -> B
-        for i in 10...19 {
-            let a = activities[i]
-            let s = environementSounds[i - 10]
-            a.audio1 = s
-            a.audio2 = environementSounds.getRandom(except: s)
-            a.audio3 = s
-        }
-        
-        return activities.shuffled().shuffled().shuffled()
-    }
-    
-    private func createLevel(_ level: LevelNumber) -> [Activity] {
+    private func create(_ level: LevelNumber) -> [Activity] {
         var sounds:[String] = []
         
         switch level {
+        case .three:
+            sounds = environementSounds
         case .four:
             sounds = ["Pao", "Boi", "Cais", "Mar", "Gol", "Pao", "Boi", "Cais", "Mar", "Gol"]
         case .five:
@@ -142,10 +89,10 @@ class LevelViewModel {
         default: return getTrainingLevel()
         }
         
-        return createLevel(level, with: sounds)
+        return create(level, with: sounds)
     }
     
-    private func createLevel(_ level: LevelNumber, with sounds: [String]) -> [Activity] {
+    private func create(_ level: LevelNumber, with sounds: [String]) -> [Activity] {
         //Todos tem a mesma figura geométrica
         //10 B tem um som diferente de A e C
         //10 C tem um som diferente de A e B
