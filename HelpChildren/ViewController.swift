@@ -20,6 +20,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let color = UIColor(red: 21/255.0, green: 41/255.0, blue: 81/255.0, alpha: 1)
+        navigationController?.navigationBar.tintColor = color
+        navigationController?.navigationBar.titleTextAttributes = [
+            .foregroundColor: color,
+            .font: UIFont.boldSystemFont(ofSize: 25)
+        ]
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
         levelsCollectionView.delegate = self
         levelsCollectionView.dataSource = self
         

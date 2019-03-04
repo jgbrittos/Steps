@@ -146,7 +146,8 @@ class LevelViewModel {
     
     private func createBaseShapesArrayFor(level: LevelNumber) -> [Activity] {
         //Todas as imagens de uma atividade são iguais
-        let shapes = ["square", "circle", "triangle", "rectangle", "star"]
+//        let shapes = ["square", "circle", "triangle", "rectangle", "star"]
+        let shapes = ["squareS", "circleS", "triangleS", "rectangleS", "starS"]
         var activities = [Activity]()
         
         for j in 0..<5 {
