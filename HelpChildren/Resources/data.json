@@ -2,39 +2,39 @@
     "menu": [
         {
             "level": 1,
-            "image": "door"
+            "image": "level1"
         },
         {
             "level": 2,
-            "image": "pig"
+            "image": "level2"
         },
         {
             "level": 3,
-            "image": "rain"
+            "image": "level3"
         },
         {
             "level": 4,
-            "image": "baby"
+            "image": "level4"
         },
         {
             "level": 5,
-            "image": "rain"
+            "image": "level5"
         },
         {
             "level": 6,
-            "image": "dog"
+            "image": "level6"
         },
         {
             "level": 7,
-            "image": "pig"
+            "image": "level7"
         },
         {
             "level": 8,
-            "image": "door"
+            "image": "level8"
         },
         {
             "level": 9,
-            "image": "rain"
+            "image": "level9"
         },
     ],
     "training": [

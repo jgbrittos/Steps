@@ -30,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45607CDA2205F3FB00B6F27C /* boi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = boi.mp4; sourceTree = "<group>"; };
 		C32E63EA21F126F6005BDBEB /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		C32E63EC21F12A20005BDBEB /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		C32E63EE21F12A41005BDBEB /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		C32E640021F13EB9005BDBEB /* Training_1_2_3 */ = {
 			isa = PBXGroup;
 			children = (
+				45607CDA2205F3FB00B6F27C /* boi.mp4 */,
 				C32E63F721F13EB3005BDBEB /* baby.mp3 */,
 				C32E63F621F13EB3005BDBEB /* dog.mp3 */,
 				C32E63FA21F13EB3005BDBEB /* door.mp3 */,
@@ -376,9 +378,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LUT4N73CY2;
+				DEVELOPMENT_TEAM = RNV6X3S2UF;
 				INFOPLIST_FILE = "$(SRCROOT)/HelpChildren/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,9 +399,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LUT4N73CY2;
+				DEVELOPMENT_TEAM = RNV6X3S2UF;
 				INFOPLIST_FILE = "$(SRCROOT)/HelpChildren/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
