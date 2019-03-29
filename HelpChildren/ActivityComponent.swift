@@ -58,12 +58,14 @@ class ActivityComponent: UIView {
     }
     
     private func playAudioFile(withName name: String) {
-
+        NotificationCenter.default.post(name: .playingAudio, object: nil, userInfo: ["userInteractionEnabled": false])
+        
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else {
             print("couldn't load file :(")
             audioProgressBar.isHidden = true
             return
         }
+        
         audioProgressBar.isHidden = false
 
         do {
@@ -76,12 +78,7 @@ class ActivityComponent: UIView {
         player.play()
     }
     
-    private func setupTimer() {
-        if timer != nil {
-            timer.invalidate()
-            timer = nil
-        }
-        
+    private func setupTimer() {        
         timer = Timer.scheduledTimer(timeInterval: 0.01,
                                      target: self,
                                      selector: #selector(updateAudioProgressBar),
@@ -91,6 +88,17 @@ class ActivityComponent: UIView {
     
     @objc private func updateAudioProgressBar() {
         audioProgressBar.isHidden = !player.isPlaying
-        audioProgressBar.setProgress(player.isPlaying ? Float(player.currentTime/player.duration) : 0, animated: false)
+        
+        if player.isPlaying {
+            audioProgressBar.setProgress(Float(player.currentTime/player.duration), animated: false)
+        } else {
+            if timer != nil {
+                timer.invalidate()
+                timer = nil
+            }
+            
+            NotificationCenter.default.post(name: .playingAudio, object: nil, userInfo: ["userInteractionEnabled": true])
+            audioProgressBar.setProgress(0, animated: false)
+        }
     }
 }

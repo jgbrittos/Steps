@@ -8,10 +8,11 @@
 
 import Foundation
 
-typealias Pair = (String, String)
+typealias Pair = (AudioMedia, AudioMedia)
 
 class LevelViewModel {
-    private let environementSounds = ["baby", "dog", "pig", "door", "rain", "baby", "dog", "pig", "door", "rain"]
+    private let trainingAudios: [AudioMedia] = [.baby, .dog, .pig, .door, .rain, .baby, .dog, .pig, .door, .rain]
+    private var environementSounds: [String]!
     
     private var training: [Activity] = [Activity]()
     var updateLevelsList: (()->())?
@@ -20,6 +21,10 @@ class LevelViewModel {
         didSet {
             self.updateLevelsList?()
         }
+    }
+    
+    init() {
+        environementSounds = trainingAudios.map { $0.name }
     }
     
     func loadMenu() {
@@ -36,7 +41,7 @@ class LevelViewModel {
         switch level {
         case .training: return getTrainingLevel()
         case .one: return create(level, withSpecialSound: "")
-        case .two: return create(level, withSpecialSound: "neutral")
+        case .two: return create(level, withSpecialSound: AudioMedia.neutral.name)
         case .three: return create(level, with: environementSounds)
         default: return create(level)
         }
@@ -75,17 +80,17 @@ class LevelViewModel {
         
         switch level {
         case .four:
-            sounds = [("Pao", "Boi"), ("Cais", "Mar"), ("Gol", "Pao"), ("Boi", "Cais"), ("Mar", "Gol")]
+            sounds = [(.bread, .cow), (.pier, .sea), (.goal, .bread), (.cow, .pier), (.sea, .goal)]
         case .five:
-            sounds = [("Pe", "Pau"), ("Gol", "Gas"), ("Seu", "Sol"), ("Vai", "Voo"), ("Mel", "Meu")]
+            sounds = [(.foot, .stick), (.goal, .gas), (.your, .sun), (.go, .flight), (.honey, .mine)]
         case .six:
-            sounds = [("Mão", "Tão"), ("Flor", "Cor"), ("Oi", "Boi"), ("Sou", "Gol"), ("Mês", "Fez")]
+            sounds = [(.hand, .so), (.flower, .color), (.hi, .cow), (.iam, .goal), (.month, .did)]
         case .seven:
-            sounds = [("Bota", "Beija"), ("Manhã", "Meia"), ("Achei", "Abrir"), ("Preto", "Pata"), ("Quintal", "Quarto")]
+            sounds = [(.bout, .kiss), (.morning, .sock), (.found, .open), (.black, .pawn), (.yard, .room)]
         case .eight:
-            sounds = [("Fato", "Gato"), ("Pega", "Nega"), ("Festa", "Testa"), ("Bola", "Cola"), ("Laços", "Braços")]
+            sounds = [(.fact, .cat), (.catch_, .deny), (.party, .forehead), (.ball, .glue), (.lace, .arms)]
         case .nine:
-            sounds = [("Lavar", "Largar"), ("Bruços", "Braços"), ("Faço", "Faça"), ("Secar", "Serrar"), ("Rabo", "Raso")]
+            sounds = [(.wash, .drop), (.breaststroke, .arms), (.iDo, .youDo), (.dry, .saw), (.tail, .shallow)]
         default: return getTrainingLevel()
         }
         
@@ -127,17 +132,11 @@ class LevelViewModel {
         sounds.forEach { (x, y) in
             for i in 0...3 {
                 let a = activities[contador]
-                a.audio1 = i % 2 == 0 ? x : y
-                a.audio2 = (i == 0 || i == 1) ? x : y
-                a.audio3 = (i == 0 || i == 1) ? y : x
+                a.audio1 = (i % 2 == 0 ? x : y).name
+                a.audio2 = ((i == 0 || i == 1) ? x : y).name
+                a.audio3 = ((i == 0 || i == 1) ? y : x).name
                 
                 contador += 1
-//                x y x y
-//                x x y y
-//                y y x x
-//                a.audio1 = (i == 0 || i == 1) ? (i % 2 == 0 ? x : y) : (i % 2 == 0 ? x : y)
-//                a.audio2 = (i == 0 || i == 1) ? (i % 2 == 0 ? x : x) : (i % 2 == 0 ? y : y)
-//                a.audio3 = (i == 0 || i == 1) ? (i % 2 == 0 ? y : y) : (i % 2 == 0 ? x : x)
             }
         }
         

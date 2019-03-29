@@ -31,6 +31,24 @@ class ActivityViewController: UIViewController {
         super.viewDidLoad()
         initComponents()
         initVM()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onStartPlayingAudio(_:)), name: .playingAudio, object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc
+    func onStartPlayingAudio(_ notification: Notification) {
+        guard
+            let userInfo = notification.userInfo,
+            let userInteraction = userInfo["userInteractionEnabled"] as? Bool
+            else { return }
+        
+        nextActivityButton.isEnabled = userInteraction
+        previousActivityButton.isEnabled = userInteraction
     }
     
     func initComponents() {
@@ -45,7 +63,6 @@ class ActivityViewController: UIViewController {
     }
     
     func initVM() {
-//        title = viewModel.title
         totalQuestions = viewModel.activities.count
         
         viewModel.updateActivity = { [weak self] () in
