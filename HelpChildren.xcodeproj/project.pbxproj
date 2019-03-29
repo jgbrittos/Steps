@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45217B48224D9A3A0047F7E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45217B47224D9A3A0047F7E1 /* Assets.xcassets */; };
 		453D3A8D224C37CD0093EE48 /* AudioMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D3A8C224C37CD0093EE48 /* AudioMedia.swift */; };
 		4561F43E224D873F004ABCBC /* fez.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4561F425224D8739004ABCBC /* fez.mp3 */; };
 		4561F43F224D873F004ABCBC /* serrar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4561F426224D8739004ABCBC /* serrar.mp3 */; };
@@ -71,7 +72,6 @@
 		C32E63F221F1336A005BDBEB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E63F121F1336A005BDBEB /* Level.swift */; };
 		C32E63F421F13372005BDBEB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E63F321F13372005BDBEB /* Activity.swift */; };
 		C32E640221F1647A005BDBEB /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E640121F1647A005BDBEB /* Menu.swift */; };
-		C32E640A21F296DA005BDBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32E640921F296DA005BDBEB /* Assets.xcassets */; };
 		C340B95B21B564D100655BA1 /* ActivityComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = C340B95A21B564D100655BA1 /* ActivityComponent.xib */; };
 		C340B95E21B567B900655BA1 /* ActivityComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C340B95D21B567B900655BA1 /* ActivityComponent.swift */; };
 		C3C6F0CC21B5487800608406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6F0CB21B5487800608406 /* AppDelegate.swift */; };
@@ -83,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45217B47224D9A3A0047F7E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453D3A8C224C37CD0093EE48 /* AudioMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMedia.swift; sourceTree = "<group>"; };
 		4561F425224D8739004ABCBC /* fez.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fez.mp3; sourceTree = "<group>"; };
 		4561F426224D8739004ABCBC /* serrar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = serrar.mp3; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 		C32E63F121F1336A005BDBEB /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		C32E63F321F13372005BDBEB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		C32E640121F1647A005BDBEB /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		C32E640921F296DA005BDBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HelpChildren/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		C340B95A21B564D100655BA1 /* ActivityComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityComponent.xib; sourceTree = "<group>"; };
 		C340B95D21B567B900655BA1 /* ActivityComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityComponent.swift; sourceTree = "<group>"; };
 		C3C6F0C821B5487800608406 /* HelpChildren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpChildren.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +171,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45217B46224D9A0E0047F7E1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C3C6F0D421B5487A00608406 /* LaunchScreen.storyboard */,
+				C3C6F0D721B5487A00608406 /* Info.plist */,
+				45217B47224D9A3A0047F7E1 /* Assets.xcassets */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		453D3AAB224C39990093EE48 /* AdvancedLevels */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,13 +274,11 @@
 			isa = PBXGroup;
 			children = (
 				453D3A8C224C37CD0093EE48 /* AudioMedia.swift */,
+				4561F499224D9426004ABCBC /* NotificationName+Extensions.swift */,
 				C32E640021F13EB9005BDBEB /* Training_1_2_3 */,
 				453D3AAB224C39990093EE48 /* AdvancedLevels */,
 				C32E63EA21F126F6005BDBEB /* data.json */,
-				C3C6F0D421B5487A00608406 /* LaunchScreen.storyboard */,
-				C3C6F0D721B5487A00608406 /* Info.plist */,
-				C32E640921F296DA005BDBEB /* Assets.xcassets */,
-				4561F499224D9426004ABCBC /* NotificationName+Extensions.swift */,
+				45217B46224D9A0E0047F7E1 /* Other */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -390,6 +398,7 @@
 				4561F447224D873F004ABCBC /* voo.mp3 in Resources */,
 				4561F47F224D888B004ABCBC /* mao.mp3 in Resources */,
 				4561F47E224D888B004ABCBC /* tao.mp3 in Resources */,
+				45217B48224D9A3A0047F7E1 /* Assets.xcassets in Resources */,
 				4561F44A224D873F004ABCBC /* testa.mp3 in Resources */,
 				4561F448224D873F004ABCBC /* quintal.mp3 in Resources */,
 				4561F43F224D873F004ABCBC /* serrar.mp3 in Resources */,
@@ -411,7 +420,6 @@
 				4561F453224D873F004ABCBC /* mel.mp3 in Resources */,
 				4561F48D224D888C004ABCBC /* gas.mp3 in Resources */,
 				4561F48A224D888B004ABCBC /* meia.mp3 in Resources */,
-				C32E640A21F296DA005BDBEB /* Assets.xcassets in Resources */,
 				4561F487224D888B004ABCBC /* vai.mp3 in Resources */,
 				4561F462224D8847004ABCBC /* achei.mp3 in Resources */,
 				C340B95B21B564D100655BA1 /* ActivityComponent.xib in Resources */,
@@ -597,7 +605,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RNV6X3S2UF;
-				INFOPLIST_FILE = "$(SRCROOT)/HelpChildren/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/HelpChildren/Resources/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,7 +626,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RNV6X3S2UF;
-				INFOPLIST_FILE = "$(SRCROOT)/HelpChildren/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/HelpChildren/Resources/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

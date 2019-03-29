@@ -70,8 +70,7 @@ enum AudioMedia: String {
 
     case bout = "bota" // Falta
     case pig = "pig"// Falta
-    case breaststroke = "Bruços"// Falta
-    case six = "seix"// Falta
+    case breaststroke = "bruços"// Falta
     case iam = "sou"// Falta
     case room = "quarto"//Falta
     
